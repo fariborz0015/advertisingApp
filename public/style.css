@@ -1,0 +1,446 @@
+    @font-face {
+        font-family: Vazir;
+        src: url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.eot');
+        src: url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.eot?#iefix') format('embedded-opentype'), url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.woff2') format('woff2'), url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.woff') format('woff'), url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.ttf') format('truetype');
+        font-weight: normal;
+    }
+    
+    @font-face {
+        font-family: Vazir;
+        src: url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Bold.eot');
+        src: url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Bold.eot?#iefix') format('embedded-opentype'), url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Bold.woff2') format('woff2'), url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Bold.woff') format('woff'), url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Bold.ttf') format('truetype');
+        font-weight: bold;
+    }
+    /* @font-face {
+        font-family: Vazir;
+        src: url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Light.eot');
+        src: url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Light.eot?#iefix') format('embedded-opentype'), url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Light.woff2') format('woff2'), url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Light.woff') format('woff'), url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Light.ttf') format('truetype');
+        font-weight: 300;
+    }
+    
+    @font-face {
+        font-family: Vazir;
+        src: url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Medium.eot');
+        src: url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Medium.eot?#iefix') format('embedded-opentype'), url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Medium.woff2') format('woff2'), url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Medium.woff') format('woff'), url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Medium.ttf') format('truetype');
+        font-weight: 500;
+    }
+    
+    @font-face {
+        font-family: Vazir;
+        src: url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Thin.eot');
+        src: url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Thin.eot?#iefix') format('embedded-opentype'), url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Thin.woff2') format('woff2'), url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Thin.woff') format('woff'), url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Thin.ttf') format('truetype');
+        font-weight: 100;
+    }
+    
+    @font-face {
+        font-family: Vazir;
+        src: url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Black.eot');
+        src: url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Black.eot?#iefix') format('embedded-opentype'), url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Black.woff2') format('woff2'), url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Black.woff') format('woff'), url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Black.ttf') format('truetype');
+        font-weight: 900;
+    }
+     */
+    
+    * {
+        font-family: vazir
+    }
+    
+    a {
+        text-decoration: none;
+        color: black
+    }
+    
+    .rtl {
+        direction: rtl
+    }
+    
+    .text-them {
+        color: #29abe2 !important
+    }
+    
+    .bg-them {
+        background-color: #29abe2 !important
+    }
+    
+    .appbackload {
+        background: #cacaca;
+        display: flex;
+        justify-content: center;
+        align-items: center
+    }
+    
+    .app-container {
+        max-width: 360px;
+        width: 360px;
+        height: 720px;
+        max-height: 720px;
+        background: #fff;
+        overflow: hidden;
+    }
+    
+    .login-page {
+        background: url('./svg/bg.svg');
+        background-size: 130%;
+        background-position: -48 -24;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .form-box {
+        width: 100%;
+        height: 252px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0;
+        flex-direction: column;
+    }
+    
+    .login-logo {
+        background: url('./svg/logo.svg');
+        display: block;
+        width: 72px;
+        height: 72px
+    }
+    
+    .login-inputs {
+        width: 250px;
+    }
+    
+    .nofocus:focus {
+        box-shadow: none !important;
+        border: none !important;
+        outline: none !important;
+    }
+    
+    .login-inputs input,
+    .login-inputs input:focus {
+        border: none !important;
+        border-radius: 15px !important;
+        background: #29aae294;
+        font-size: 13px;
+    }
+    
+    .login-button {
+        min-width: 80px;
+        text-align: center;
+        padding: 5px;
+        border-radius: 10px;
+        background: #29abe2;
+        outline: none !important;
+        border: none !important;
+        line-height: 1;
+        padding-bottom: 12px;
+        color: #fff
+    }
+    /* landing page styles */
+    
+    .landing-page {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: start;
+        flex-direction: column;
+    }
+    
+    .header-bottoms {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 26px 10px;
+        padding-bottom: 26px;
+        position: relative;
+        padding-bottom: 0;
+    }
+    
+    .header-bottoms .fa {
+        font-size: 23px !important
+    }
+    
+    .dots {
+        background: url('./svg/dots-b.svg');
+        display: block;
+        width: 40px;
+        height: 40px;
+        pointer-events: none;
+    }
+    
+    .side-btn {
+        position: relative;
+        z-index: 2;
+    }
+    
+    .side-btn.active .dots {
+        background: url('./svg/dots-w.svg');
+    }
+    
+    .side-btn.active~.side-bar {
+        width: 80px;
+        color: #fff;
+        overflow: unset !important;
+    }
+    
+    .side-bar {
+        height: 720px;
+        top: 0px;
+        border-radius: 0px 10px 10px 0px;
+        position: absolute;
+        z-index: 1;
+        width: 0px;
+        left: 0px;
+        overflow: hidden;
+        transition: all 0.3s;
+    }
+    
+    .side-bar-list {
+        height: 100%;
+        padding: 0px;
+        margin: 0px;
+        position: relative;
+        top: 100px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .side-bar-list-item:nth-child(1) {
+        margin-top: 0px !important
+    }
+    
+    .side-bar-list-item {
+        color: #1e85b1;
+        margin-top: 43px;
+        cursor: pointer;
+        display: block;
+        transition: all 0.3s
+    }
+    
+    .side-bar-list-item.active {
+        color: #fff !important
+    }
+    
+    .side-bar-list-item>span {
+        pointer-events: none;
+    }
+    
+    .arrow {
+        transition: all 0.3s;
+        position: absolute;
+        left: 95%;
+        font-size: 60px !important;
+        color: #29abe2;
+        top: -15px;
+    }
+    
+    .content-container {
+        width: 100%;
+        height: max-content;
+    }
+    
+    .category-list {
+        list-style: none !important;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        padding: 10px 10px !important;
+    }
+    
+    .category-item-link {
+        margin: 0px;
+        margin-top: 20px;
+        text-align: center;
+        max-width: max-content;
+        font-size: 12px;
+        color: #646464de;
+        justify-self: center;
+        transition: all 0.3s
+    }
+    
+    .content-container {
+        overflow-y: auto;
+        scroll-snap-type: y mandatory;
+    }
+    
+    .category-item {
+        display: block;
+        width: 80px;
+        height: 80px;
+        border-radius: 100%;
+        border: 1px solid #29abe221 !important;
+        margin: 5px 0px;
+        box-shadow: 2px 5px 13px -7px #29abe285;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .category-item>* {
+        font-size: 26px !important;
+    }
+    /*  box item and list styles */
+    
+    .box-list {
+        width: 100%;
+        height: auto;
+        padding: 8px
+    }
+    
+    .box-item {
+        direction: rtl;
+        width: 100%;
+        height: 115px;
+        border-radius: 10px;
+        display: grid;
+        border: 1px solid #29abe221 !important;
+        box-shadow: 2px 5px 13px -7px #29abe285;
+        grid-template-columns: 100px 220px;
+        justify-content: space-between;
+        align-items: center;
+        grid-template-rows: 75% 20%;
+        margin-bottom: 20px;
+    }
+    
+    .box-list-title {
+        font-size: 18px;
+        font-family: 'vazir';
+        width: 100%;
+        text-align: right;
+        color: #6d6d6d;
+        margin-bottom: 15px;
+        padding-right: 15px;
+    }
+    
+    .img-box {
+        border-radius: 10px;
+        width: 103px;
+        height: 94px;
+        overflow: hidden;
+        position: relative;
+        top: 13px;
+        margin-right: 10px;
+    }
+    
+    .box-caption {
+        font-size: 11px;
+        color: #6d6d6d;
+        height: 50px;
+        overflow: hidden;
+        margin-bottom: 0px;
+    }
+    
+    .box-text {
+        margin-top: 24px;
+    }
+    
+    .box-title {
+        font-size: 13px;
+    }
+    
+    .box-details {
+        grid-column: 2;
+    }
+    
+    .box-details {
+        font-size: 10px;
+        text-align: left;
+        padding-left: 27;
+    }
+    
+    .box-location {
+        margin-right: 10px;
+    }
+    /* end landing page */
+    /* profile page */
+    
+    .avatar-box {
+        width: 100%;
+        padding-right: 20px;
+        text-align: right;
+        margin-top: 30px
+    }
+    
+    .avatar-box img {
+        width: 115px;
+        height: 110px;
+        border-radius: 21px;
+        cursor: pointer;
+    }
+    
+    .profile-form {
+        text-align: right;
+    }
+    
+    .profile-form input,
+    .profile-form input:focus {
+        height: 33px;
+        background: #29aae26e;
+        text-align: right;
+        border: none !important;
+        border-radius: 10px;
+        font-size: 13px
+    }
+    
+    .avatar-label {
+        position: relative;
+    }
+    
+    .avatar-label:after {
+        content: "\f030";
+        font-family: 'Font Awesome 5 Pro';
+        font-weight: 900;
+        position: absolute;
+        top: 64%;
+        left: 9px;
+        font-size: 24;
+        color: #8f8f8f;
+    }
+    
+    .search-btn {
+        transition: all 0.3s !important;
+    }
+    
+    .search-btn.dosearch>.fa {
+        color: #5cdf5c !important
+    }
+    
+    .search-btn>.fa {
+        pointer-events: none !important;
+    }
+    
+    .search-btn.active {
+        border-radius: 100%;
+        width: 40px;
+        height: 40px;
+        background: #fff;
+        position: relative;
+        margin-right: 5px
+    }
+    
+    .search-input,
+    .search-input:focus {
+        width: 0px;
+        border: none !important;
+        transition: all 0.3s !important;
+        background: #29aae26e;
+        padding: 0px;
+        box-shadow: none !important;
+    }
+    
+    .search-btn.active~.search-input {
+        border-radius: 10px 0px 0px 10px;
+        background: #29aae26e;
+        border: none !important;
+        box-shadow: none !important;
+        text-align: right;
+        margin-right: -10px;
+        padding-right: 15px;
+        width: 200px;
+    }
+    
+    .form-group small {
+        width: 100%;
+        display: block;
+        font-size: 10px !important;
+        text-align: right;
+        padding-right: 10px;
+        padding-top: 5px;
+    }
