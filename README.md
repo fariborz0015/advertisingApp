@@ -26,7 +26,7 @@ after cloning if you haven't any file by name ".env", make a new file and named 
 SKIP_PREFLIGHT_CHECK=true 
 
 ```
-if you passed the  top level  open the folder directory shell , and  typed this codes :
+if you passed the  top step  open the folder directory shell , and  typed this codes :
 
 ```
 npm install
