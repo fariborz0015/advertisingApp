@@ -4,7 +4,8 @@ const initialState = {
         name: null,
         phone: null,
         login: false
-    }
+    },
+   
 }
 function LOGIN_reducer(state = initialState, action) {
 
@@ -27,7 +28,7 @@ function LOGIN_reducer(state = initialState, action) {
                 ...state,
                 user_info: action.user_info
             }
-
+     
         default:
             return state
     }

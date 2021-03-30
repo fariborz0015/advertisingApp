@@ -2,7 +2,7 @@ function BoxItem() {
     return (
         <a className="box-item" href="#ff">
             <div className="img-box">
-                <img src="./img/placeholder.png" className="w-100 h-100" alt="" />
+                <img src="/./img/placeholder.png" className="w-100 h-100" alt="" />
             </div>
             <div className="box-text">
                 <h6 className="box-title">این یک عنوان از اگهی است </h6>

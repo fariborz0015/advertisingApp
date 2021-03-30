@@ -2,17 +2,20 @@
 import { connect } from 'react-redux';
 import { useForm } from "react-hook-form";
 import * as Actions from './../Actions'
-import { FromError } from './../plugins/Helper/Helper'
+import { FromError } from './../plugins/Helper/Helper';
+import Axios from 'axios';
 function Profile(props) {
 
 
     const myStorage = window.localStorage;
     const { register, handleSubmit, errors } = useForm();
 
+
     const onSubmit = data => {
+
         //remove old data from local storage
         let prevLocalStorage = JSON.parse(myStorage.getItem('USET_INFOS'));
-
+        props.dispatch(Actions.loadingAction(true));
 
         //set the new user info data in local storage
         myStorage.setItem('USET_INFOS', JSON.stringify({
@@ -24,6 +27,8 @@ function Profile(props) {
         }))
         //rout path updating | after the change states user backed to this url
         props.dispatch(Actions.redirectAction('/profile'));
+
+
         //profile updating 
         props.dispatch(Actions.profileAction({
             ...prevLocalStorage,
@@ -33,11 +38,13 @@ function Profile(props) {
             login: true
         }))
 
+        props.dispatch(Actions.loadingAction(false));
 
 
 
 
     }
+
 
 
 
@@ -51,7 +58,7 @@ function Profile(props) {
                 <label htmlFor="avatar_input" className="avatar-label">
                     <img src="./img/placeholder.png" alt="" />
                 </label>
-                <input type="file" name="avatar" className="visually-hidden" id="avatar_input" placeholder="" />
+                <input ref={register} type="file" name="avatar" className="visually-hidden" id="avatar_input" placeholder="" />
             </div>
             <div className="w-100 px-4">
 

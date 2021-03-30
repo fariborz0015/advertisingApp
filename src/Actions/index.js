@@ -25,7 +25,13 @@ export const redirectAction = path => {
 
 export const profileAction = user_info => {
     return {
-        type: types.REDIRECT_ACT,
+        type: types.PROFILE_ACT,
         user_info
+    }
+}
+export const loadingAction = LoadingStatus => {
+    return {
+        type: types.LOADING_ACT,
+        LoadingStatus
     }
 }

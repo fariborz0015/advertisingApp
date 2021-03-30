@@ -8,7 +8,7 @@ function Category(params) {
         <ul className="category-list w-100">
 
             {
-                justrange.map((item,index) => <CategoryItem key={index+22} />)
+                justrange.map((item,index) => <CategoryItem key={`category`+index} />)
             }
 
         </ul>

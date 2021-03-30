@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect ,useRef} from 'react';
 import { useHistory, Switch } from 'react-router-dom';
 import { connect } from 'react-redux'
 import loadable from '@loadable/component'
@@ -14,16 +14,14 @@ const LoginCMP = loadable(() => import('./Components/Login/Login'));
 const Landing = loadable(() => import('./Components/Landing/Landing'));
 
 
-const nullArray =[]
 
-const myStorage = window.localStorage;
 function App(props) {
 
 
   const history = useHistory();
-
+  const myStorage = window.localStorage;
   const user = props.user_info;
-  
+  // const previousFooRef = useRef(props.foo);
   useEffect(() => {
     let data = JSON.parse(myStorage.getItem('USET_INFOS'))
     if (data) {
@@ -34,7 +32,7 @@ function App(props) {
         }
       })
     }
-  },nullArray)
+  },[])
 
   if (user.login === true) {
     history.push(props.path)
