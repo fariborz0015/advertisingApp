@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { useForm } from "react-hook-form";
 import * as Actions from './../Actions'
 import { FromError } from './../plugins/Helper/Helper';
-import Axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function Profile(props) {
 
 
@@ -25,6 +26,8 @@ function Profile(props) {
             birthDate: data.birthDate,
             login: true
         }))
+
+
         //rout path updating | after the change states user backed to this url
         props.dispatch(Actions.redirectAction('/profile'));
 
@@ -41,7 +44,7 @@ function Profile(props) {
         props.dispatch(Actions.loadingAction(false));
 
 
-
+        toast.success(`پروفایل شما به درستی تغییر یافت`, { position: "top-center" })
 
     }
 
@@ -125,7 +128,8 @@ function Profile(props) {
 
 
 
-
+            {/* notification shower component */}
+            <ToastContainer rtl={true} />
         </form>
 
     )

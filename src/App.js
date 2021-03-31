@@ -4,6 +4,7 @@ import { useHistory, Switch } from 'react-router-dom';
 import { connect } from 'react-redux'
 import loadable from '@loadable/component'
 import {  Route } from 'react-router-dom';
+import * as Actions from'./Actions'
 
 
 
@@ -25,12 +26,7 @@ function App(props) {
   useEffect(() => {
     let data = JSON.parse(myStorage.getItem('USET_INFOS'))
     if (data) {
-      props.dispatch({
-        type: 'LOGIN_ACT',
-        user_info: {
-          ...data
-        }
-      })
+      props.dispatch(Actions.loginAction(data))
     }
   },[])
 
