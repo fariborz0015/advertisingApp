@@ -35,3 +35,21 @@ export const loadingAction = LoadingStatus => {
         LoadingStatus
     }
 }
+export const getMyAdverisesAction = MyAdvertises => {
+    return {
+        type: types.GET_MY_ADVERISES,
+        MyAdvertises
+    }
+}
+export const getLastAds = LastAds => {
+    return {
+        type: types.GET_LAST_ADS,
+        LastAds: LastAds
+    }
+}
+export const GetAllCategory = Categories => {
+    return {
+        type: types.GET_ALL_CATEGORIES,
+        Categories: Categories
+    }
+}

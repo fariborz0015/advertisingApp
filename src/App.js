@@ -1,10 +1,11 @@
 
-import React, { useEffect ,useRef} from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useHistory, Switch } from 'react-router-dom';
 import { connect } from 'react-redux'
 import loadable from '@loadable/component'
-import {  Route } from 'react-router-dom';
-import * as Actions from'./Actions'
+import { Route } from 'react-router-dom';
+import * as Actions from './Actions'
+import axios from 'axios';
 
 
 
@@ -18,23 +19,59 @@ const Landing = loadable(() => import('./Components/Landing/Landing'));
 
 function App(props) {
 
-
   const history = useHistory();
   const myStorage = window.localStorage;
+  const api_token = myStorage.getItem('api_token')
   const user = props.user_info;
   // const previousFooRef = useRef(props.foo);
+
   useEffect(() => {
-    let data = JSON.parse(myStorage.getItem('USET_INFOS'))
-    if (data) {
-      props.dispatch(Actions.loginAction(data))
+
+
+    if (api_token) {
+      props.dispatch(Actions.loadingAction(true));
+      axios.post('http://laravelapi.dct-roosh-hirkan.ir/api/userinfos', null, {
+        headers: {
+          Authorization: `Bearer ${api_token}`
+        }
+      })
+        .then(res => {
+          props.dispatch(Actions.profileAction(
+            {
+              ...res.data.Data.items,
+
+            }
+          ))
+          props.dispatch(Actions.loadingAction(false));
+        })
+        .catch(error => {
+
+          props.dispatch(Actions.loadingAction(false));
+          props.dispatch(
+            Actions.profileAction(
+              {
+
+                login: false,
+              }
+            )
+          )
+        }
+        )
     }
-  },[])
+
+
+
+
+  }, [])
+
 
   if (user.login === true) {
     history.push(props.path)
   } else {
     history.push('/')
   }
+
+
 
 
 

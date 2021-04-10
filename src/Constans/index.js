@@ -4,3 +4,6 @@ export const LOGOUT_ACT="LOGOUT_ACT";
 export const PROFILE_ACT="PROFILE_ACT";
 export const REDIRECT_ACT="REDIRECT_ACT";
 export const LOADING_ACT="LOADING_ACT";
+export const GET_MY_ADVERISES="GET_MY_ADVERISES";
+export const GET_LAST_ADS="GET_LAST_ADS";
+export const GET_ALL_CATEGORIES="GET_ALL_CATEGORIES";

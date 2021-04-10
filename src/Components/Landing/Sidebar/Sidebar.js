@@ -47,6 +47,12 @@ function Sidebar(props) {
                 <NavLink className="side-bar-list-item" activeClassName="active" to="/home" onClick={e => ArrowOffsetHandel(e)}>
                     <span className="fa fa-home"></span>
                 </NavLink>
+                <NavLink className="side-bar-list-item" activeClassName="active" to="/AddNew" onClick={e => ArrowOffsetHandel(e)}>
+                    <span className="fa fa-plus"></span>
+                </NavLink>
+                <NavLink className="side-bar-list-item" activeClassName="active" to="/MyAdvertises" onClick={e => ArrowOffsetHandel(e)}>
+                     <span className="fa fal fa-comment-alt-lines"></span>
+                </NavLink>
                 <NavLink className="side-bar-list-item" activeClassName="active" to="/profile" onClick={e => ArrowOffsetHandel(e)}>
                     <span className="fa fa-user"></span>
                 </NavLink>

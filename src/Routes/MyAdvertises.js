@@ -3,65 +3,58 @@ import { connect } from 'react-redux';
 import loadable from '@loadable/component';
 import axios from 'axios';
 import * as Actions from './../Actions'
-
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import InfiniteScroll from 'react-infinite-scroll-component';
 const BoxList = loadable(() => import('../Components/Landing/BoxList/BoxList'));
 const BottomLoading = loadable(() => import('./../Components/BottomLoading/BottomLoading'));
-function Category_items(props) {
-
-
+function MyAdvertises(props) {
 
     const myStorage = window.localStorage;
     const api_token = myStorage.getItem('api_token');
-    const [nextPage, nextPageSet] = useState(null);
-    const [itemlength, itemlengthSet] = useState(5);
-    const [hasmore, hasmoreSet] = useState(true);
-    const [items, itemsSet] = useState({});
-    const [categoryInfo, categoryInfoSET] = useState({});
+    const [nextPage, nextPageSet] = useState("")
+    const [itemlength, itemlengthSet] = useState(5)
+    const [hasmore, hasmoreSet] = useState(true)
 
 
 
     useEffect(() => {
         props.dispatch(Actions.loadingAction(true));
-        axios.get(`http://laravelapi.dct-roosh-hirkan.ir/api/getItemBYcategory?catid=${props.match.params.CatId}`, {
+        axios.get('http://laravelapi.dct-roosh-hirkan.ir/api/MyAdvertis', {
             headers: {
                 Authorization: `Bearer ${api_token}`
             }
         })
             .then(res => {
 
-                itemsSet(res.data.Advertises.data);
-                categoryInfoSET(res.data.category);
-                nextPageSet(res.data.Advertises.next_page_url);
+                props.dispatch(Actions.loadingAction(false));
+                props.dispatch(Actions.getMyAdverisesAction(res.data.data));
+                nextPageSet(res.data.next_page_url);
                 itemlengthSet(itemlength + 5);
-                if (res.data.Advertises.total - itemlength == 0) {
+                if(res.data.to==res.data.total){
                     hasmoreSet(false)
                 }
-
-                props.dispatch(Actions.loadingAction(false));
             })
             .catch(err => {
+                toast.error('خطا', { position: "top-center" });
                 props.dispatch(Actions.loadingAction(false));
-
             })
 
     }, [])
 
 
-
     let GetmoreِData = () => {
-        axios.get(nextPage + `&catid=${props.match.params.CatId}`, {
+        axios.get(nextPage, {
             headers: {
                 Authorization: `Bearer ${api_token}`
             }
         })
             .then(res => {
                 props.dispatch(Actions.loadingAction(false));
-                itemsSet([...items, ...res.data.Advertises.data]);
-                nextPageSet(res.data.Advertises.next_page_url);
+                props.dispatch(Actions.getMyAdverisesAction(res.data.data));
+                nextPageSet(res.data.next_page_url);
                 itemlengthSet(itemlength + 5);
-                if (res.data.Advertises.total - itemlength <= 0) {
+                if(res.data.to==res.data.total){
                     hasmoreSet(false)
                 }
             })
@@ -94,8 +87,8 @@ function Category_items(props) {
                 }
             >
                 <br />
-                {console.log(items)}
-                <BoxList items={items} header={`اگهی های ${categoryInfo.name} `} nothaveText="شما هیچ اگهی ارسال نکرده اید " />
+
+                <BoxList items={props.MyAdvertises} header="اگهی های ارسال شده شما " nothaveText="شما هیچ اگهی ارسال نکرده اید " />
             </InfiniteScroll>
 
 
@@ -105,7 +98,11 @@ function Category_items(props) {
 
 
 let mapStateToProps = state => {
-    return state
+    return {
+        ...state,
+        MyAdvertises: state.GETADVERTISES_reducer.MyAdvertises
+
+    }
 }
 
-export default connect(mapStateToProps)(Category_items)
+export default connect(mapStateToProps)(MyAdvertises)

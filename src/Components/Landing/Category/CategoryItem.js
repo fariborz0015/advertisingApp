@@ -2,14 +2,15 @@
 import {Link } from 'react-router-dom';
 function CategoryItem(props) {
 
+    let item=props.item;
     
     return (
 
-        <Link to="/list/dddd" className="category-item-link">
+        <Link to={`/list/${item.id}`} className="category-item-link">
             <li className="category-item">
-                <i className="fas fa-briefcase"></i>
+                <i className={item.icon}></i>
             </li>
-            <span> استخدامی</span>
+            <span> {item.name}</span>
         </Link>
 
 

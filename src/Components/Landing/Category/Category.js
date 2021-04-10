@@ -2,13 +2,13 @@ import loadable from '@loadable/component';
 
 const CategoryItem = loadable(() => import('./CategoryItem'))
 
-function Category(params) {
-    const justrange = [1, 1, 1, 1, 1, 1, 1, 1, 1,]
+function Category(props) {
+     let categories=props.items;
     return (
         <ul className="category-list w-100">
 
             {
-                justrange.map((item,index) => <CategoryItem key={`category`+index} />)
+                categories.map((item) => <CategoryItem item={item} key={`category`+item.id} />)
             }
 
         </ul>

@@ -7,13 +7,15 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import reducer from './Reducers'
 import { Provider } from 'react-redux';
-
+ 
 
 const middleware = []
 const store = createStore(reducer, composeWithDevTools(
   applyMiddleware(...middleware),
   // other store enhancers if any
 ));
+
+ 
 
 ReactDOM.render(
   <React.StrictMode>

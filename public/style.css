@@ -355,6 +355,8 @@
     
     .box-text {
         margin-top: 24px;
+        margin-right: 13px;
+        word-wrap: break-word;
     }
     
     .box-title {
@@ -385,7 +387,6 @@
     }
     
     .avatar-box img {
-        width: 115px;
         height: 110px;
         border-radius: 21px;
         cursor: pointer;
@@ -510,4 +511,67 @@
         background: #0d6efd;
         animation: sk-scaleout 2s infinite ease-in-out;
         border-radius: 100%;
+    }
+    
+    .BottomLoading {
+        position: absolute;
+        top: 89%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        color: black;
+        height: 83px;
+        background: rgb(41, 171, 226);
+        background: linear-gradient(0deg, rgba(0, 7, 10, 0.79) 24%, rgba(48, 143, 162, 0) 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 28;
+    }
+    
+    .BottomLoading::before {
+        content: "";
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        z-index: 3;
+        background: #0d6efd;
+        animation: sk-scaleout 2s infinite ease-in-out;
+        border-radius: 100%;
+        right: 0px;
+        top: 0px;
+    }
+    
+    .BottomLoading::after {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        z-index: 3;
+        background: #0d6efd;
+        animation: sk-scaleout 1.2s infinite ease-in-out;
+        border-radius: 100%;
+        left: 0px;
+    }
+    
+    .text-right {
+        text-align: right;
+    }
+    
+    .list-answer {
+        font-size: 14px;
+    }
+    
+    .ad-detail-text {
+        font-size: 14px;
+        color: #4f4f4fde;
+    }
+    
+    .lazy-load-image-background {
+        width: 100%;
+    }
+    
+    .haserror-conatainer {
+        width: 100%;
+        height: 498px;
     }
