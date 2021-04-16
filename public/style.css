@@ -575,3 +575,13 @@
         width: 100%;
         height: 498px;
     }
+    
+    .select-box {
+        width: 100%;
+        height: 29;
+        border: 0;
+        border-radius: 6px;
+        background: #a2daf2;
+        padding: 3;
+        text-align: right;
+    }

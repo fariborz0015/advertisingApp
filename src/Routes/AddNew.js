@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import * as Actions from './../Actions/index';
 import {connect} from 'react-redux';
 import { FromError } from './../plugins/Helper/Helper';
@@ -15,9 +15,10 @@ function AddNew(props) {
     const api_token = myStorage.getItem('api_token');
     const { register, handleSubmit, errors ,reset} = useForm();
     const Formdata = new FormData();
+    const [Reset, ResetSET]=useState();
 
-    const [Reset, ResetSET]=useState()
-  
+
+
     const onSubmit = (data, e) => {
         props.dispatch(Actions.loadingAction(true));
         Formdata.append('image', data.image[0]);
@@ -25,8 +26,6 @@ function AddNew(props) {
         Formdata.append('city', data.city);
         Formdata.append('details', data.details);
         Formdata.append('category', data.category);
-
-     
 
         axios.post('http://laravelapi.dct-roosh-hirkan.ir/api/AddAdvertis',
             Formdata,
@@ -72,6 +71,28 @@ function AddNew(props) {
 
     }
 
+    
+    //getting categories
+    useEffect(() => {
+        props.dispatch(Actions.loadingAction(true));
+        axios.get('http://laravelapi.dct-roosh-hirkan.ir/api/category/getAll', {
+            headers: {
+                Authorization: `Bearer ${api_token}`
+            }
+        })
+            .then(res => {
+
+                console.log(res.data.Data)
+                props.dispatch(Actions.loadingAction(false));
+                props.dispatch(Actions.GetAllCategory(res.data.Data.items));
+
+            })
+            .catch(err => {
+                props.dispatch(Actions.loadingAction(false));
+            })
+
+    }, [])
+    //end
 
 
     return (
@@ -127,16 +148,14 @@ function AddNew(props) {
                 </div>
                 <div className="form-group mb-3 ">
                     <label className="mb-2">  : دسته بندی   </label>
-                    <input ref={register({ required: true, pattern: /^[\u0600-\u06FF\s]+$/, minLength: 3 })} type="text" className="form-control nofocus" id="" name="category" placeholder=" شغل " />
-
-                    <small className="text-danger">
-                        {errors.category && FromError({
-                            refrence: errors.category,
-                            inputname: "دسته بندی ",
-
-                        })}
-
-                    </small>
+                    <select className="select-box" name="category" ref={register} id="">
+                        {
+                            props.categories.map(item=>{
+                                return  <option value={item.id}>{item.name}</option>
+                            })
+                        }
+                       
+                    </select>
                 </div>
                 <div className="form-group mb-3 ">
                     <label className="mb-2">  : توضیحات   </label>
@@ -171,6 +190,9 @@ function AddNew(props) {
 
 }
 let mapStatesToProps = (state) => {
-    return state
+    return {
+        ...state,
+        categories:state.GETCATEGORIES_reducer.Categories
+    }
 }
 export default connect(mapStatesToProps)(AddNew)
