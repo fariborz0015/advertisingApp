@@ -2,7 +2,10 @@ import loadable from '@loadable/component'
 import { Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import {useRef} from 'react'
+import {useRef} from 'react';
+import PrivateRoute from '../PrivateRoute';
+
+
 
 
 const Header = loadable(() => import('./Header/Header'));
@@ -35,7 +38,7 @@ function Landing(props) {
             {/* end Header */}
             <div className=" content-container " id="scrollableDiv">
                 {/* Home Route be Loade  home page */}
-                <Route path="/home" component={Home} />
+                <PrivateRoute path="/home" component={Home} />
                 <Route path="/profile" component={Profile} />
                 <Route path="/list/:CatId" component={List_Item} />
                 <Route path="/AddNew" component={AddNew} />

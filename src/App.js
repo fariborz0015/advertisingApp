@@ -6,6 +6,7 @@ import loadable from '@loadable/component'
 import { Route } from 'react-router-dom';
 import * as Actions from './Actions'
 import axios from 'axios';
+import Islogin from './Components/Islogin';
 
 
 
@@ -28,48 +29,49 @@ function App(props) {
   useEffect(() => {
 
 
-    if (api_token) {
-      props.dispatch(Actions.loadingAction(true));
-      axios.post('http://laravelapi.dct-roosh-hirkan.ir/api/userinfos', null, {
-        headers: {
-          Authorization: `Bearer ${api_token}`
-        }
-      })
-        .then(res => {
-          props.dispatch(Actions.profileAction(
-            {
-              ...res.data.Data.items,
 
-            }
-          ))
-          props.dispatch(Actions.loadingAction(false));
+       if (api_token) {
+        props.dispatch(Actions.loadingAction(true));
+        axios.post('http://laravelapi.dct-roosh-hirkan.ir/api/userinfos', null, {
+          headers: {
+            Authorization: `Bearer ${api_token}`
+          }
         })
-        .catch(error => {
-
-          props.dispatch(Actions.loadingAction(false));
-          props.dispatch(
-            Actions.profileAction(
+          .then(res => {
+            props.dispatch(Actions.profileAction(
               {
-
-                login: false,
+                ...res.data.Data.items,
+   
               }
+            ))
+            props.dispatch(Actions.loadingAction(false));
+          })
+          .catch(error => {
+   
+            props.dispatch(Actions.loadingAction(false));
+            props.dispatch(
+              Actions.profileAction(
+                {
+   
+                  login: false,
+                }
+              )
             )
+          }
           )
-        }
-        )
-    }
-
+      }
+   
 
 
 
   }, [])
+  
 
-
-  if (user.login === true) {
-    history.push(props.path)
-  } else {
-    history.push('/')
-  }
+    if (user.login === true) {
+      history.push(props.path)
+    } else {
+      history.push('/')
+    }
 
 
 
