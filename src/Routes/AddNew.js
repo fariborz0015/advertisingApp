@@ -82,7 +82,7 @@ function AddNew(props) {
         })
             .then(res => {
 
-                console.log(res.data.Data)
+               
                 props.dispatch(Actions.loadingAction(false));
                 props.dispatch(Actions.GetAllCategory(res.data.Data.items));
 

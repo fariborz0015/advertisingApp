@@ -94,7 +94,7 @@ function Category_items(props) {
                 }
             >
                 <br />
-                {console.log(items)}
+           
                 <BoxList items={items} header={`اگهی های ${categoryInfo.name} `} nothaveText="شما هیچ اگهی ارسال نکرده اید " />
             </InfiniteScroll>
 
