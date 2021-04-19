@@ -24,7 +24,7 @@ function Category_items(props) {
 
     useEffect(() => {
         props.dispatch(Actions.loadingAction(true));
-        axios.get(`http://laravelapi.dct-roosh-hirkan.ir/api/getItemBYcategory?catid=${props.match.params.CatId}`, {
+        axios.get(`/getItemBYcategory?catid=${props.match.params.CatId}`, {
             headers: {
                 Authorization: `Bearer ${api_token}`
             }

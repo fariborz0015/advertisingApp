@@ -19,7 +19,7 @@ function Home(props) {
 
     //get Last ads 
     useEffect(() => {
-        axios.get('http://laravelapi.dct-roosh-hirkan.ir/api/LastAds', {
+        axios.get('/LastAds', {
             headers: {
                 Authorization: `Bearer ${api_token}`
             }
@@ -45,7 +45,7 @@ function Home(props) {
 
     //getting categories
     useEffect(() => {
-        axios.get('http://laravelapi.dct-roosh-hirkan.ir/api/category/getAll', {
+        axios.get('/category/getAll', {
             headers: {
                 Authorization: `Bearer ${api_token}`
             }

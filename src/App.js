@@ -31,7 +31,7 @@ function App(props) {
 
     if (api_token) {
       props.dispatch(Actions.loadingAction(true));
-      axios.post('http://laravelapi.dct-roosh-hirkan.ir/api/userinfos', null, {
+      axios.post('/userinfos', null, {
         headers: {
           Authorization: `Bearer ${api_token}`
         }

@@ -14,7 +14,7 @@ function Islogin(props) {
         return false;
     } else {
 
-        axios.post('http://laravelapi.dct-roosh-hirkan.ir/api/userinfos', null, {
+        axios.post('/userinfos', null, {
             headers: {
                 Authorization: `Bearer ${api_token}`
             }

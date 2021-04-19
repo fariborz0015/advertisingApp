@@ -24,7 +24,7 @@ function Single(props) {
     useEffect(() => {
 
         props.dispatch(Actions.loadingAction(true));
-        axios.post('http://laravelapi.dct-roosh-hirkan.ir/api/single', { token: Token }, {
+        axios.post('/single', { token: Token }, {
             headers: {
                 Authorization: `Bearer ${api_token}`
             }

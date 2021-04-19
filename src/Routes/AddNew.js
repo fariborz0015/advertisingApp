@@ -27,7 +27,7 @@ function AddNew(props) {
         Formdata.append('details', data.details);
         Formdata.append('category', data.category);
 
-        axios.post('http://laravelapi.dct-roosh-hirkan.ir/api/AddAdvertis',
+        axios.post('/AddAdvertis',
             Formdata,
             {
                 headers: {
@@ -75,7 +75,7 @@ function AddNew(props) {
     //getting categories
     useEffect(() => {
         props.dispatch(Actions.loadingAction(true));
-        axios.get('http://laravelapi.dct-roosh-hirkan.ir/api/category/getAll', {
+        axios.get('/category/getAll', {
             headers: {
                 Authorization: `Bearer ${api_token}`
             }

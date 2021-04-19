@@ -19,7 +19,7 @@ function Profile(props) {
 
     const onSubmit = data => {
 
-        axios.post('http://laravelapi.dct-roosh-hirkan.ir/api/profileUpdate', data ,{
+        axios.post('/profileUpdate', data ,{
             headers:{
                 Authorization:`Bearer ${api_token}` 
             }

@@ -20,7 +20,7 @@ function MyAdvertises(props) {
 
     useEffect(() => {
         props.dispatch(Actions.loadingAction(true));
-        axios.get('http://laravelapi.dct-roosh-hirkan.ir/api/MyAdvertis', {
+        axios.get('/MyAdvertis', {
             headers: {
                 Authorization: `Bearer ${api_token}`
             }

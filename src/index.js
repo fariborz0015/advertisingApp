@@ -7,8 +7,9 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import reducer from './Reducers'
 import { Provider } from 'react-redux';
- 
+import axios from 'axios'
 
+axios.defaults.baseURL = 'http://laravelapi.dct-roosh-hirkan.ir/api';
 const middleware = []
 const store = createStore(reducer, composeWithDevTools(
   applyMiddleware(...middleware),
